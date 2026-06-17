@@ -8,11 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#FBFAF7;--ink:#1A1916;--soft:#5C574E;--faint:#A39C8E;
-    --accent:#7A3B2E;--line:#E6E2D8;--line2:#EFEBE2;
-    --mincho:'Shippori Mincho B1',serif;--gothic:'Zen Kaku Gothic New',sans-serif;--mono:'DM Mono',monospace;
-  }
+  :root{--paper:#FBFAF7;--ink:#1A1916;--soft:#5C574E;--faint:#A39C8E;--accent:#7A3B2E;--line:#E6E2D8;--line2:#EFEBE2;
+    --mincho:'Shippori Mincho B1',serif;--gothic:'Zen Kaku Gothic New',sans-serif;--mono:'DM Mono',monospace;}
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:#D8D4C9;font-family:var(--gothic);color:var(--ink);display:flex;justify-content:center;padding:28px 16px;-webkit-font-smoothing:antialiased;}
   .phone{width:100%;max-width:392px;background:var(--paper);border-radius:30px;box-shadow:0 24px 60px rgba(40,34,24,.3);overflow:hidden;}
@@ -56,31 +53,23 @@
   .ghd{font-family:var(--mincho);font-weight:600;font-size:12px;letter-spacing:.05em;margin-bottom:2px;}
   .ghd .c{font-family:var(--mono);font-weight:400;font-size:10px;color:var(--faint);margin-left:6px;}
   .gnote{font-size:10px;color:var(--faint);margin-bottom:4px;}
-  .gblock{margin-bottom:18px;}
-  .gblock:last-child{margin-bottom:0;}
+  .gblock{margin-bottom:18px;} .gblock:last-child{margin-bottom:0;}
   .done .row{opacity:.5;}
   .stance{padding:24px 26px;background:#F4F1E9;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .stance p{font-family:var(--mincho);font-weight:600;font-size:15px;line-height:1.7;}
   .stance .s{font-size:11.5px;line-height:1.85;color:var(--soft);margin-top:10px;}
   footer{padding:22px 26px 26px;}
-  .who{font-size:11.5px;line-height:1.9;color:var(--soft);}
-  .who b{color:var(--ink);font-weight:500;}
+  .who{font-size:11.5px;line-height:1.9;color:var(--soft);} .who b{color:var(--ink);font-weight:500;}
   .reg{margin-top:12px;font-family:var(--mono);font-size:9px;line-height:1.7;color:var(--faint);}
   @media(prefers-reduced-motion:reduce){.dot{animation:none;}}
 </style></head>
 <body><div class="phone">
-
-  <div class="top">
-    <span class="name">株式会社TODOKERU</span>
-    <span class="live"><span class="dot"></span><span id="lv">更新中</span></span>
-  </div>
-
+  <div class="top"><span class="name">株式会社TODOKERU</span><span class="live"><span class="dot"></span><span id="lv">更新中</span></span></div>
   <div class="masthead">
     <h1>運用の現場</h1>
     <div class="sub">数字は、規律の結果でしかない。</div>
     <div class="phaseline"><span>局面 <b>2026年 春の底</b></span><span>37 営業日目</span></div>
   </div>
-
   <div class="col">
     <div class="label">この局面の通算</div>
     <svg class="curve" viewBox="0 0 320 88" preserveAspectRatio="none">
@@ -91,23 +80,19 @@
     <div class="ann"><span>局面スタート</span><span>本日</span></div>
     <div class="streak"><b>37</b> 営業日、ルールを守った動きです。</div>
   </div>
-
   <div class="col">
-    <div class="label">ゆうきまんの手記 ／ 06.16</div>
+    <div class="label">ゆうきまんの手記 ／ 06/16</div>
     <p>『投資は孤独との戦い』——そう例えられます。先行きが不安で不安で仕方ない。そう思うとき、あなたの隣にいる投資家もまた、同じ不安を抱えていることが多いのです。</p>
     <p>過度な動きをするとき、自分の心理と集団心理は一致しやすい。だからこそ、周りに流されず、軸を持った運用が求められます。</p>
     <details class="past"><summary>過去の手記を読む</summary>
-      <div class="pi"><div class="d">2026.06.09</div><p>銘柄Dが基準を割った。損切る人も多い。でも私のルールでは、まだ持つ。判定はまだ先。</p></div>
-      <div class="pi"><div class="d">2026.05.22</div><p>急落。一日で全体が崩れた。こういう日こそ淡々と。新しい判断はしない。</p></div>
+      <div class="pi"><p>これから手記が積み上がっていきます。</p></div>
     </details>
   </div>
-
   <div class="col">
     <div class="label">いま、気になる銘柄</div>
     <div class="hold"><span class="tk">銘柄D</span><span class="loss">▼ 16.9% 含み損</span><span class="rest"><b>9</b> 営業日 残り</span></div>
     <div class="holdsaid">下落率が気になるところですが、許容範囲です。感情で動かない、こちらが試される時間帯です。</div>
   </div>
-
   <div class="col">
     <div class="gblock">
       <div class="ghd">保有中<span class="c">6</span></div><div class="gnote">判定前。ルールの範囲内で持っている</div>
@@ -134,17 +119,14 @@
       <div class="row"><span class="tk">銘柄L</span><span class="mv">+1.3%</span><span class="stt">利確 決済</span></div>
     </div>
   </div>
-
   <div class="stance">
     <p>弊社が追求しているのは、大きなリターンではありません。</p>
     <p class="s">規律を守った結果として、しっかりとしたリターンを追求します。そのため、短期的な利益を求める方には向いていません。</p>
   </div>
-
   <footer>
     <p class="who"><b>ゆうきまん</b>　野村證券17年を経て独立。月次面談・週2回の相場レポートで、運用の中身を隠さず共有します。</p>
     <p class="reg">関東財務局長（金商）第3348号 ／ 投資助言・代理業<br>掲載の銘柄表示はすべて匿名化したダミーです。特定の売買を推奨するものではありません。</p>
   </footer>
-
 </div>
 <script>function lv(){const d=new Date(),p=n=>String(n).padStart(2,'0');document.getElementById('lv').textContent=`${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;}lv();setInterval(lv,1000);</script>
 </body></html>
