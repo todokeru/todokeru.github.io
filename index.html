@@ -1,1 +1,150 @@
-<!DOCTYPE html><html lang='ja'><body style='font-family:sans-serif;padding:40px'><h1>接続テスト成功</h1><p>Colabからの自動更新が動いています。</p></body></html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>運用の現場 — 株式会社TODOKERU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF7;--ink:#1A1916;--soft:#5C574E;--faint:#A39C8E;
+    --accent:#7A3B2E;--line:#E6E2D8;--line2:#EFEBE2;
+    --mincho:'Shippori Mincho B1',serif;--gothic:'Zen Kaku Gothic New',sans-serif;--mono:'DM Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#D8D4C9;font-family:var(--gothic);color:var(--ink);display:flex;justify-content:center;padding:28px 16px;-webkit-font-smoothing:antialiased;}
+  .phone{width:100%;max-width:392px;background:var(--paper);border-radius:30px;box-shadow:0 24px 60px rgba(40,34,24,.3);overflow:hidden;}
+  .top{padding:30px 26px 0;display:flex;align-items:center;justify-content:space-between;}
+  .top .name{font-size:10.5px;letter-spacing:.16em;color:var(--soft);}
+  .top .live{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9.5px;color:var(--faint);}
+  .top .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:p 2.6s infinite;}
+  @keyframes p{0%{opacity:1;}50%{opacity:.3;}100%{opacity:1;}}
+  .masthead{padding:20px 26px 22px;border-bottom:2.5px solid var(--ink);}
+  .masthead h1{font-family:var(--mincho);font-weight:700;font-size:30px;letter-spacing:.02em;line-height:1.3;}
+  .masthead .sub{margin-top:10px;font-family:var(--mincho);font-size:12.5px;color:var(--soft);letter-spacing:.04em;}
+  .phaseline{display:flex;gap:14px;margin-top:14px;font-family:var(--mono);font-size:10px;color:var(--faint);}
+  .phaseline b{color:var(--accent);font-weight:500;}
+  .col{padding:24px 26px;border-bottom:1px solid var(--line);}
+  .label{font-family:var(--mincho);font-weight:600;font-size:11px;letter-spacing:.14em;color:var(--accent);margin-bottom:14px;}
+  .col p{font-family:var(--mincho);font-weight:500;font-size:15px;line-height:2.05;}
+  .col p + p{margin-top:12px;}
+  details.past{margin-top:16px;}
+  details.past summary{list-style:none;cursor:pointer;font-size:11px;color:var(--accent);font-family:var(--mincho);}
+  details.past summary::-webkit-details-marker{display:none;}
+  details.past summary::before{content:"＋ ";}
+  details.past[open] summary::before{content:"− ";}
+  .pi{margin-top:12px;padding-top:12px;border-top:1px dotted var(--line);}
+  .pi .d{font-family:var(--mono);font-size:9px;color:var(--faint);}
+  .pi p{font-size:12px;line-height:1.8;color:var(--soft);margin-top:3px;}
+  .curve{width:100%;height:88px;display:block;margin:6px 0 6px;}
+  .ann{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--faint);}
+  .streak{margin-top:14px;font-family:var(--mincho);font-size:13.5px;line-height:1.6;}
+  .streak b{font-family:var(--mono);font-weight:500;font-size:20px;color:var(--accent);}
+  .hold{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;}
+  .hold .tk{font-family:var(--mono);font-size:13px;color:var(--soft);}
+  .hold .rest{margin-left:auto;font-family:var(--mincho);font-size:13px;}
+  .hold .rest b{font-family:var(--mono);font-size:22px;color:var(--accent);font-weight:500;}
+  .hold .loss{font-family:var(--mono);font-size:11px;color:var(--accent);}
+  .holdsaid{font-family:var(--mincho);font-size:13px;line-height:1.85;color:var(--soft);margin-top:8px;}
+  .row{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-top:1px solid var(--line2);}
+  .row .tk{font-family:var(--mono);font-size:12.5px;width:46px;}
+  .row .mv{font-family:var(--mono);font-size:11.5px;width:58px;color:var(--soft);}
+  .row .mv.dn{color:var(--accent);}
+  .row .stt{margin-left:auto;font-family:var(--mincho);font-size:11.5px;color:var(--soft);}
+  .ghd{font-family:var(--mincho);font-weight:600;font-size:12px;letter-spacing:.05em;margin-bottom:2px;}
+  .ghd .c{font-family:var(--mono);font-weight:400;font-size:10px;color:var(--faint);margin-left:6px;}
+  .gnote{font-size:10px;color:var(--faint);margin-bottom:4px;}
+  .gblock{margin-bottom:18px;}
+  .gblock:last-child{margin-bottom:0;}
+  .done .row{opacity:.5;}
+  .stance{padding:24px 26px;background:#F4F1E9;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stance p{font-family:var(--mincho);font-weight:600;font-size:15px;line-height:1.7;}
+  .stance .s{font-size:11.5px;line-height:1.85;color:var(--soft);margin-top:10px;}
+  footer{padding:22px 26px 26px;}
+  .who{font-size:11.5px;line-height:1.9;color:var(--soft);}
+  .who b{color:var(--ink);font-weight:500;}
+  .reg{margin-top:12px;font-family:var(--mono);font-size:9px;line-height:1.7;color:var(--faint);}
+  @media(prefers-reduced-motion:reduce){.dot{animation:none;}}
+</style></head>
+<body><div class="phone">
+
+  <div class="top">
+    <span class="name">株式会社TODOKERU</span>
+    <span class="live"><span class="dot"></span><span id="lv">更新中</span></span>
+  </div>
+
+  <div class="masthead">
+    <h1>運用の現場</h1>
+    <div class="sub">数字は、規律の結果でしかない。</div>
+    <div class="phaseline"><span>局面 <b>2026年 春の底</b></span><span>37 営業日目</span></div>
+  </div>
+
+  <div class="col">
+    <div class="label">この局面の通算</div>
+    <svg class="curve" viewBox="0 0 320 88" preserveAspectRatio="none">
+      <line x1="0" y1="66" x2="320" y2="66" stroke="#E6E2D8" stroke-width="1" stroke-dasharray="2 3"/>
+      <path d="M0.0,76.0 L26.7,72.0 L53.3,80.0 L80.0,64.0 L106.7,68.0 L133.3,52.0 L160.0,60.0 L186.7,44.0 L213.3,56.0 L240.0,36.0 L266.7,40.0 L293.3,24.0 L320.0,16.0" fill="none" stroke="#7A3B2E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="320.0" cy="16.0" r="3.2" fill="#7A3B2E"/>
+    </svg>
+    <div class="ann"><span>局面スタート</span><span>本日</span></div>
+    <div class="streak"><b>37</b> 営業日、ルールを守った動きです。</div>
+  </div>
+
+  <div class="col">
+    <div class="label">ゆうきまんの手記 ／ 06.16</div>
+    <p>『投資は孤独との戦い』——そう例えられます。先行きが不安で不安で仕方ない。そう思うとき、あなたの隣にいる投資家もまた、同じ不安を抱えていることが多いのです。</p>
+    <p>過度な動きをするとき、自分の心理と集団心理は一致しやすい。だからこそ、周りに流されず、軸を持った運用が求められます。</p>
+    <details class="past"><summary>過去の手記を読む</summary>
+      <div class="pi"><div class="d">2026.06.09</div><p>銘柄Dが基準を割った。損切る人も多い。でも私のルールでは、まだ持つ。判定はまだ先。</p></div>
+      <div class="pi"><div class="d">2026.05.22</div><p>急落。一日で全体が崩れた。こういう日こそ淡々と。新しい判断はしない。</p></div>
+    </details>
+  </div>
+
+  <div class="col">
+    <div class="label">いま、気になる銘柄</div>
+    <div class="hold"><span class="tk">銘柄D</span><span class="loss">▼ 16.9% 含み損</span><span class="rest"><b>9</b> 営業日 残り</span></div>
+    <div class="holdsaid">下落率が気になるところですが、許容範囲です。感情で動かない、こちらが試される時間帯です。</div>
+  </div>
+
+  <div class="col">
+    <div class="gblock">
+      <div class="ghd">保有中<span class="c">6</span></div><div class="gnote">判定前。ルールの範囲内で持っている</div>
+      <div class="row"><span class="tk">銘柄K</span><span class="mv">+9.0%</span><span class="stt">ルール内 保有</span></div>
+      <div class="row"><span class="tk">銘柄C</span><span class="mv">+6.8%</span><span class="stt">ルール内 保有</span></div>
+      <div class="row"><span class="tk">銘柄G</span><span class="mv">+3.4%</span><span class="stt">ルール内 保有</span></div>
+      <div class="row"><span class="tk">銘柄I</span><span class="mv">+2.1%</span><span class="stt">ルール内 保有</span></div>
+      <div class="row"><span class="tk">銘柄H</span><span class="mv dn">-8.2%</span><span class="stt">判定日まで 保有</span></div>
+      <div class="row"><span class="tk">銘柄J</span><span class="mv dn">-5.5%</span><span class="stt">判定日まで 保有</span></div>
+    </div>
+    <div class="gblock">
+      <div class="ghd">利を伸ばし中<span class="c">2</span></div><div class="gnote">半分利確し、残りを伸ばしにいっている</div>
+      <div class="row"><span class="tk">銘柄E</span><span class="mv">+21.2%</span><span class="stt">半分利確 → 保有</span></div>
+      <div class="row"><span class="tk">銘柄A</span><span class="mv">+12.4%</span><span class="stt">半分利確 → 保有</span></div>
+    </div>
+    <div class="gblock">
+      <div class="ghd">エントリーサイン<span class="c">2</span></div><div class="gnote">次に入るかもしれない</div>
+      <div class="row"><span class="tk">銘柄F</span><span class="mv">基準接近</span><span class="stt">監視中</span></div>
+      <div class="row"><span class="tk">銘柄M</span><span class="mv">基準接近</span><span class="stt">監視中</span></div>
+    </div>
+    <div class="gblock done">
+      <div class="ghd">決済済<span class="c">2</span></div><div class="gnote">この局面で締めた、確定の結果</div>
+      <div class="row"><span class="tk">銘柄B</span><span class="mv dn">-4.1%</span><span class="stt">損失判定 決済</span></div>
+      <div class="row"><span class="tk">銘柄L</span><span class="mv">+1.3%</span><span class="stt">利確 決済</span></div>
+    </div>
+  </div>
+
+  <div class="stance">
+    <p>弊社が追求しているのは、大きなリターンではありません。</p>
+    <p class="s">規律を守った結果として、しっかりとしたリターンを追求します。そのため、短期的な利益を求める方には向いていません。</p>
+  </div>
+
+  <footer>
+    <p class="who"><b>ゆうきまん</b>　野村證券17年を経て独立。月次面談・週2回の相場レポートで、運用の中身を隠さず共有します。</p>
+    <p class="reg">関東財務局長（金商）第3348号 ／ 投資助言・代理業<br>掲載の銘柄表示はすべて匿名化したダミーです。特定の売買を推奨するものではありません。</p>
+  </footer>
+
+</div>
+<script>function lv(){const d=new Date(),p=n=>String(n).padStart(2,'0');document.getElementById('lv').textContent=`${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;}lv();setInterval(lv,1000);</script>
+</body></html>
