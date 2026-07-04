@@ -6,26 +6,37 @@
 <title>運用の現場 — 株式会社TODOKERU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--paper:#FBFAF7;--ink:#1A1916;--soft:#5C574E;--faint:#A39C8E;--accent:#7A3B2E;--line:#E6E2D8;--line2:#EFEBE2;
-    --mincho:'Shippori Mincho B1',serif;--gothic:'Zen Kaku Gothic New',sans-serif;--mono:'DM Mono',monospace;}
+  :root{--paper:#f2f5f8;--ink:#1f3350;--soft:#41506a;--faint:#8494a6;--accent:#1f4e8c;--kin:#b39149;--loss:#a3543e;--line:#ccd5de;--line2:#dde4ec;
+    --mincho:'Shippori Mincho',serif;--gothic:'Zen Kaku Gothic New',sans-serif;--mono:'DM Mono',monospace;}
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:#D8D4C9;font-family:var(--gothic);color:var(--ink);display:flex;justify-content:center;padding:28px 16px;-webkit-font-smoothing:antialiased;}
-  .phone{width:100%;max-width:392px;background:var(--paper);border-radius:30px;box-shadow:0 24px 60px rgba(40,34,24,.3);overflow:hidden;}
-  .top{padding:30px 26px 0;display:flex;align-items:center;justify-content:space-between;}
-  .top .name{font-size:10.5px;letter-spacing:.16em;color:var(--soft);}
+  body{background:linear-gradient(180deg,var(--paper) 0%,#e9eef5 100%);min-height:100vh;letter-spacing:.02em;font-family:var(--gothic);color:var(--ink);display:flex;justify-content:center;padding:28px 16px;-webkit-font-smoothing:antialiased;}
+  .phone{width:100%;max-width:440px;background:#fbfcfe;border:1px solid var(--line);border-radius:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(31,51,80,.07),0 10px 28px rgba(31,51,80,.10),0 36px 90px rgba(31,51,80,.16);overflow:hidden;position:relative;z-index:1;animation:cardin .9s cubic-bezier(.22,1,.36,1) both;}
+  @keyframes cardin{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+  .ink{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .ink span{position:absolute;border-radius:50%;filter:blur(70px);opacity:.22;}
+  .ink .a{width:520px;height:520px;background:var(--accent);top:-120px;right:calc(50% - 440px);animation:drift1 22s ease-in-out infinite alternate;}
+  .ink .b{width:460px;height:460px;background:var(--kin);bottom:-120px;left:calc(50% - 440px);opacity:.18;animation:drift2 28s ease-in-out infinite alternate;}
+  .ink .c{width:340px;height:340px;background:var(--accent);top:34%;left:calc(50% - 420px);opacity:.13;animation:drift3 34s ease-in-out infinite alternate;}
+  @keyframes drift3{from{transform:translate(0,0) scale(1);}to{transform:translate(90px,110px) scale(1.15);}}
+  @keyframes drift1{from{transform:translate(0,0) scale(1);}to{transform:translate(-120px,90px) scale(1.12);}}
+  @keyframes drift2{from{transform:translate(0,0) scale(1);}to{transform:translate(130px,-80px) scale(1.1);}}
+  .top{padding:18px 30px 14px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;background:rgba(251,252,254,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(204,213,222,.45);}
+  .top .name{font-size:10.5px;letter-spacing:.16em;color:var(--soft);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s;}
+  .top .name:hover{border-color:var(--kin);}
   .top .live{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9.5px;color:var(--faint);}
   .top .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:p 2.6s infinite;}
   @keyframes p{0%{opacity:1;}50%{opacity:.3;}100%{opacity:1;}}
-  .masthead{padding:20px 26px 22px;border-bottom:2.5px solid var(--ink);}
-  .masthead h1{font-family:var(--mincho);font-weight:700;font-size:30px;letter-spacing:.02em;line-height:1.3;}
-  .masthead .sub{margin-top:10px;font-family:var(--mincho);font-size:12.5px;color:var(--soft);letter-spacing:.04em;}
+  .masthead{padding:24px 30px 26px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#ffffff 0%,rgba(255,255,255,0) 90%);position:relative;overflow:hidden;}
+  .masthead h1{font-family:var(--mincho);font-weight:500;font-size:23px;letter-spacing:.16em;line-height:1.3;}
+  .masthead h1::after{content:"";display:block;width:calc(100% - 155px);height:1px;background:linear-gradient(90deg,var(--kin) 0%,var(--kin) 40%,rgba(179,145,73,.15) 100%);margin-top:14px;}
+  .masthead .sub{margin-top:10px;font-family:var(--mincho);font-size:11.5px;color:var(--soft);letter-spacing:.08em;}
   .phaseline{display:flex;gap:14px;margin-top:14px;font-family:var(--mono);font-size:10px;color:var(--faint);}
   .phaseline b{color:var(--accent);font-weight:500;}
-  .col{padding:24px 26px;border-bottom:1px solid var(--line);}
-  .label{font-family:var(--mincho);font-weight:600;font-size:11px;letter-spacing:.14em;color:var(--accent);margin-bottom:14px;}
-  .col p{font-family:var(--mincho);font-weight:500;font-size:15px;line-height:2.05;}
+  .col{padding:28px 30px;border-bottom:1px solid transparent;border-image:linear-gradient(90deg,rgba(204,213,222,0),var(--line) 12%,var(--line) 88%,rgba(204,213,222,0)) 1;}
+  .label{font-family:var(--mincho);font-weight:600;font-size:11px;letter-spacing:.3em;color:var(--kin);margin-bottom:14px;}
+  .col p{font-family:var(--mincho);font-weight:500;font-size:13.5px;line-height:2.15;}
   .col p + p{margin-top:12px;}
   details.past{margin-top:16px;}
   details.past summary{list-style:none;cursor:pointer;font-size:11px;color:var(--accent);font-family:var(--mincho);}
@@ -36,52 +47,76 @@
   .pi .d{font-family:var(--mono);font-size:9px;color:var(--faint);}
   .pi p{font-size:12px;line-height:1.8;color:var(--soft);margin-top:3px;}
   .curve{width:100%;height:88px;display:block;margin:6px 0 6px;}
+  .curve .line{stroke-dasharray:460;stroke-dashoffset:460;animation:drawline 4s .6s cubic-bezier(.45,.15,.55,.85) forwards;}
+  @keyframes drawline{to{stroke-dashoffset:0;}}
+  .curve .area{opacity:0;animation:fadearea 2s 3s ease forwards;}
+  .rv{opacity:0;transform:translateY(14px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1);}
+  .rv.in{opacity:1;transform:none;}
+  .curve .glow{animation:glowp 3.6s ease-in-out 5s infinite;}
+  @keyframes glowp{0%,100%{opacity:.12;}50%{opacity:.3;}}
+  @keyframes fadearea{to{opacity:1;}}
   .ann{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--faint);}
-  .streak{margin-top:14px;font-family:var(--mincho);font-size:13.5px;line-height:1.6;}
-  .streak b{font-family:var(--mono);font-weight:500;font-size:20px;color:var(--accent);}
+  .streak{margin-top:14px;font-family:var(--mincho);font-size:12px;line-height:1.6;}
+  .streak b{font-family:var(--mono);font-weight:500;font-size:16px;color:var(--accent);}
   .hold{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;}
   .hold .tk{font-family:var(--mono);font-size:13px;color:var(--soft);}
   .hold .rest{margin-left:auto;font-family:var(--mincho);font-size:13px;}
-  .hold .rest b{font-family:var(--mono);font-size:22px;color:var(--accent);font-weight:500;}
-  .hold .loss{font-family:var(--mono);font-size:11px;color:var(--accent);}
+  .hold .rest b{font-family:var(--mono);font-size:17px;color:var(--accent);font-weight:500;}
+  .hold .loss{font-family:var(--mono);font-size:11px;color:var(--loss);}
   .holdsaid{font-family:var(--mincho);font-size:13px;line-height:1.85;color:var(--soft);margin-top:8px;}
-  .row{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-top:1px solid var(--line2);}
-  .row .tk{font-family:var(--mono);font-size:12.5px;width:46px;}
-  .row .mv{font-family:var(--mono);font-size:11.5px;width:58px;color:var(--soft);}
-  .row .mv.dn{color:var(--accent);}
-  .row .stt{margin-left:auto;font-family:var(--mincho);font-size:11.5px;color:var(--soft);}
+  .row{display:flex;align-items:baseline;gap:10px;padding:9px 6px;margin:0 -6px;border-top:1px solid var(--line2);border-radius:4px;transition:background .3s;}
+  .row:hover{background:rgba(31,78,140,.04);}
+  .row .tk{font-family:var(--mono);font-size:11.5px;width:46px;}
+  .row .mv{font-family:var(--mono);font-size:10.5px;width:58px;color:var(--soft);}
+  .row .mv.dn{color:var(--loss);}
+  .row .stt{margin-left:auto;font-family:var(--mincho);font-size:11px;color:var(--soft);}
   .ghd{font-family:var(--mincho);font-weight:600;font-size:12px;letter-spacing:.05em;margin-bottom:2px;}
   .ghd .c{font-family:var(--mono);font-weight:400;font-size:10px;color:var(--faint);margin-left:6px;}
   .gnote{font-size:10px;color:var(--faint);margin-bottom:4px;}
   .gblock{margin-bottom:18px;} .gblock:last-child{margin-bottom:0;}
   .done .row{opacity:.5;}
-  .stance{padding:24px 26px;background:#F4F1E9;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .stance p{font-family:var(--mincho);font-weight:600;font-size:15px;line-height:1.7;}
+  .ripple-stage{position:absolute;right:26px;top:32px;width:135px;height:108px;pointer-events:none;}
+  .drop{position:absolute;left:50%;top:0;width:4px;height:12px;margin-left:-2px;border-radius:50% 50% 60% 60%;background:linear-gradient(180deg,rgba(31,78,140,0),rgba(31,78,140,.9));animation:dropfall 4.2s cubic-bezier(.55,0,.85,.4) infinite;}
+  @keyframes dropfall{0%{transform:translateY(-8px) scaleY(.6);opacity:0;}3%{opacity:1;}22%{transform:translateY(66px) scaleY(1.15);opacity:1;}23%{transform:translateY(70px);opacity:0;}100%{transform:translateY(70px);opacity:0;}}
+  .wave{position:absolute;left:50%;top:76px;width:40px;height:14px;margin:-7px 0 0 -20px;border:1.5px solid rgba(31,78,140,.75);border-radius:50%;opacity:0;transform:scale(0);animation:spread 4.2s cubic-bezier(.17,.6,.35,1) infinite;}
+  .wave.r2{animation-delay:.35s;border-color:rgba(31,78,140,.55);}
+  .wave.r3{animation-delay:.72s;border-color:rgba(31,78,140,.4);}
+  .wave.r4{animation-delay:1.1s;border-color:rgba(31,78,140,.28);}
+  @keyframes spread{0%,22%{transform:scale(0);opacity:0;}26%{opacity:1;}70%{transform:scale(3.2);opacity:0;}100%{transform:scale(3.2);opacity:0;}}
+  .stance{padding:28px 30px;background:#e8eef5;border-bottom:1px solid var(--line);}
+  .stance p{font-family:var(--mincho);font-weight:500;font-size:13.5px;line-height:1.9;letter-spacing:.04em;}
   .stance .s{font-size:11.5px;line-height:1.85;color:var(--soft);margin-top:10px;}
-  footer{padding:22px 26px 26px;}
+  footer{padding:26px 30px 32px;}
   .who{font-size:11.5px;line-height:1.9;color:var(--soft);} .who b{color:var(--ink);font-weight:500;}
+  .sitelink{margin-top:16px;font-family:var(--mincho);font-size:12px;}
+  .sitelink a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--kin);padding-bottom:2px;letter-spacing:.06em;}
   .reg{margin-top:12px;font-family:var(--mono);font-size:9px;line-height:1.7;color:var(--faint);}
   .disc{margin-top:9px;font-size:10px;line-height:1.65;color:var(--soft);}
   .legal{font-size:11px;line-height:1.85;color:var(--soft);}
-  details.letter{border-bottom:1px solid var(--line);background:#F4F1E9;}
-  details.letter > summary{list-style:none;cursor:pointer;padding:15px 26px;font-family:var(--mincho);font-weight:600;font-size:12px;letter-spacing:.08em;color:var(--accent);}
+  details.letter{border-bottom:1px solid var(--line);background:#e8eef5;}
+  details.letter > summary{list-style:none;cursor:pointer;padding:15px 26px;transition:background .3s;}
+  details.letter > summary:hover{background:rgba(31,78,140,.05);}
+  details.letter > summary{font-family:var(--mincho);font-weight:600;font-size:12px;letter-spacing:.08em;color:var(--accent);}
   details.letter > summary::-webkit-details-marker{display:none;}
   details.letter > summary::after{content:" ▼";font-size:9px;color:var(--faint);}
   details.letter[open] > summary::after{content:" ▲";}
-  .letterbody{padding:2px 26px 26px;}
-  .letterbody p{font-family:var(--mincho);font-weight:500;font-size:14.5px;line-height:2.05;}
+  .letterbody{padding:2px 30px 30px;}
+  .letterbody p{font-family:var(--mincho);font-weight:500;font-size:13px;line-height:2.1;}
   .letterbody p + p{margin-top:13px;}
-  .invite{padding:24px 26px;border-bottom:1px solid var(--line);}
-  .invite p{font-family:var(--mincho);font-weight:600;font-size:14px;line-height:1.95;}
+  .invite{padding:28px 30px;border-bottom:1px solid var(--line);}
+  .invite p{font-family:var(--mincho);font-weight:500;font-size:12.5px;line-height:2.0;letter-spacing:.03em;}
   .sidedoor{margin-top:14px;font-family:var(--mincho);font-size:11.5px;line-height:1.85;color:var(--soft);}
-  @media(prefers-reduced-motion:reduce){.dot{animation:none;}}
+  @media(prefers-reduced-motion:reduce){.dot,.drop,.wave,.ink span,.phone,.curve .line,.curve .area,.curve .glow{animation:none;}.phone,.curve .area{opacity:1;transform:none;}.curve .line{stroke-dashoffset:0;}.rv{opacity:1;transform:none;transition:none;}}
 </style></head>
-<body><div class="phone">
-  <div class="top"><span class="name">株式会社TODOKERU</span><span class="live"><span class="dot"></span><span id="lv">更新中</span></span></div>
+<body>
+<div class="ink"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+<div class="phone">
+  <div class="top"><a class="name" href="https://www.ia-todokeru.com/">株式会社TODOKERU</a><span class="live"><span class="dot"></span><span id="lv">更新中</span></span></div>
   <div class="masthead">
+    <div class="ripple-stage"><span class="drop"></span><span class="wave"></span><span class="wave r2"></span><span class="wave r3"></span><span class="wave r4"></span></div>
     <h1>運用の現場</h1>
     <div class="sub">数字は、規律の結果でしかない。</div>
-    <div class="phaseline"><span>局面 <b>2026年 春の底</b></span><span>56 営業日目</span></div>
+    <div class="phaseline"><span>局面 <b>2026年 春の底</b></span><span>57 営業日目</span></div>
   </div>
   <details id="letter" class="letter">
     <summary>はじめての方へ — お会いする前に</summary>
@@ -117,13 +152,19 @@
   <div class="col">
     <div class="label">この局面の通算</div>
     <svg class="curve" viewBox="0 0 320 88" preserveAspectRatio="none">
-      <line x1="0" y1="66" x2="320" y2="66" stroke="#E6E2D8" stroke-width="1" stroke-dasharray="2 3"/>
-      <path d="M0.0,79.7 L5.6,79.7 L11.2,79.7 L16.8,79.7 L22.5,79.7 L28.1,79.7 L33.7,79.7 L39.3,79.7 L44.9,79.7 L50.5,79.7 L56.1,79.7 L61.8,79.7 L67.4,79.7 L73.0,80.0 L78.6,74.3 L84.2,73.3 L89.8,67.9 L95.4,69.4 L101.1,63.5 L106.7,60.4 L112.3,71.0 L117.9,66.1 L123.5,50.8 L129.1,55.5 L134.7,46.5 L140.4,49.3 L146.0,61.9 L151.6,76.9 L157.2,75.9 L162.8,68.6 L168.4,55.0 L174.0,54.2 L179.6,46.7 L185.3,50.8 L190.9,54.5 L196.5,59.6 L202.1,54.5 L207.7,29.4 L213.3,28.9 L218.9,28.9 L224.6,52.9 L230.2,43.4 L235.8,54.2 L241.4,60.1 L247.0,49.0 L252.6,44.1 L258.2,26.6 L263.9,34.8 L269.5,32.0 L275.1,23.0 L280.7,16.0 L286.3,33.0 L291.9,33.8 L297.5,25.8 L303.2,40.0 L308.8,31.5 L314.4,24.0 L320.0,37.7" fill="none" stroke="#7A3B2E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-      <circle cx="320.0" cy="37.7" r="3.2" fill="#7A3B2E"/>
+      <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1f4e8c" stop-opacity=".20"/>
+        <stop offset="1" stop-color="#1f4e8c" stop-opacity="0"/>
+      </linearGradient></defs>
+      <line x1="0" y1="66" x2="320" y2="66" stroke="#ccd5de" stroke-width="1" stroke-dasharray="2 3"/>
+      <path class="area" d="M0.0,79.7 L5.5,79.7 L11.0,79.7 L16.6,79.7 L22.1,79.7 L27.6,79.7 L33.1,79.7 L38.6,79.7 L44.1,79.7 L49.7,79.7 L55.2,79.7 L60.7,79.7 L66.2,79.7 L71.7,80.0 L77.2,74.3 L82.8,73.3 L88.3,67.9 L93.8,69.4 L99.3,63.5 L104.8,60.4 L110.3,71.0 L115.9,66.1 L121.4,50.8 L126.9,55.5 L132.4,46.5 L137.9,49.3 L143.4,61.9 L149.0,76.9 L154.5,75.9 L160.0,68.6 L165.5,55.0 L171.0,54.2 L176.6,46.7 L182.1,50.8 L187.6,54.5 L193.1,59.6 L198.6,54.5 L204.1,29.4 L209.7,28.9 L215.2,28.9 L220.7,52.9 L226.2,43.4 L231.7,54.2 L237.2,60.1 L242.8,49.0 L248.3,44.1 L253.8,26.6 L259.3,34.8 L264.8,32.0 L270.3,23.0 L275.9,16.0 L281.4,33.0 L286.9,33.8 L292.4,25.8 L297.9,40.0 L303.4,31.5 L309.0,24.0 L314.5,37.7 L320.0,55.5 L320,88 L0,88 Z" fill="url(#cg)" stroke="none"/>
+      <path class="line" d="M0.0,79.7 L5.5,79.7 L11.0,79.7 L16.6,79.7 L22.1,79.7 L27.6,79.7 L33.1,79.7 L38.6,79.7 L44.1,79.7 L49.7,79.7 L55.2,79.7 L60.7,79.7 L66.2,79.7 L71.7,80.0 L77.2,74.3 L82.8,73.3 L88.3,67.9 L93.8,69.4 L99.3,63.5 L104.8,60.4 L110.3,71.0 L115.9,66.1 L121.4,50.8 L126.9,55.5 L132.4,46.5 L137.9,49.3 L143.4,61.9 L149.0,76.9 L154.5,75.9 L160.0,68.6 L165.5,55.0 L171.0,54.2 L176.6,46.7 L182.1,50.8 L187.6,54.5 L193.1,59.6 L198.6,54.5 L204.1,29.4 L209.7,28.9 L215.2,28.9 L220.7,52.9 L226.2,43.4 L231.7,54.2 L237.2,60.1 L242.8,49.0 L248.3,44.1 L253.8,26.6 L259.3,34.8 L264.8,32.0 L270.3,23.0 L275.9,16.0 L281.4,33.0 L286.9,33.8 L292.4,25.8 L297.9,40.0 L303.4,31.5 L309.0,24.0 L314.5,37.7 L320.0,55.5" fill="none" stroke="#1f4e8c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle class="glow" cx="320.0" cy="55.5" r="7" fill="#1f4e8c" opacity=".15"/>
+      <circle cx="320.0" cy="55.5" r="3.2" fill="#1f4e8c"/>
     </svg>
     <div class="ann"><span>局面スタート</span><span>本日</span></div>
     <p class="disc">損益推移は、当社モデルに基づく想定運用（想定元本2,000万円）の実現・評価損益の推移であり、実際のお客様口座の運用成績ではありません。過去の結果であり、将来の成果を約束するものではありません。</p>
-    <div class="streak"><b>56</b> 営業日、ルールを守った動きです。</div>
+    <div class="streak"><b>57</b> 営業日、ルールを守った動きです。</div>
   </div>
   <div class="col">
     <div class="label">TODOKERUの手記 ／ 07/02</div>
@@ -136,7 +177,7 @@
     <details class="past"><summary>過去の手記を読む</summary>
       <div class="pi"><div class="d">2026.06.29</div><p>±800ドルの一日。それでも、持ち続けた。 木曜は荒れました。マイクロンの決算で先物が800ドル飛び、市場が開くと800ドル戻ってきた。場は「天井だ」「押し目だ」と賑やかでした。 でも私が見ているのは騒ぎではなく、50日移動平均線という一本の線だけ。割っていないなら、動く理由はありません。割ったら考える、それまでは持つ。だから持ちました。 周りが騒いでいても、焦る必要はありません。</p></div>
       <div class="pi"><div class="d">2026.06.25</div><p>半導体が8％下げた日に、何もしなかった。 火曜、関連指数が1日で8％下げ、「バブル終了か」の声が増えました。でも私が見るのは下げ幅ではなく、誰がどれくらいの勢いで売ったか。 確かめると、大きく下げた割に出来高は増えていない。一部の分野に売りが集中しただけで、全員が投げた崩れ方ではありませんでした。これはトレンドの終わりではない。だから、動きませんでした。 景色が変われば、ためらわず構えを変えます。それまでは、待つだけです。</p></div>
-      <div class="pi"><div class="d">2026.06.22</div><p>お金の流れだけ見ていれば、慌てずに済みます。 いまドルの蛇口は大きく緩んでいます。米国の債務もFRBの資産も、市場のお金の量も、揃って増え続けている。お金が増える局面は、中長期で株価に追い風です。 ただ、お金が増えるほど値動きも荒くなる。上げも大きく、下げも大きい。だからこそ、目先に振り回されない構えがいる。 私がしているのは、その構えを守り続けることだけです。</p></div>
+      <div class="pi"><div class="d">2026.06.22</div><p>メモリー株に売りが出た日。それでも私が慌てなかった理由今週、半導体まわりが少し騒がしくなりました。火曜日に半導体関連の指数が1日で8％も下げ、ニュースやSNSでは「半導体バブル、ついに終わりか」という声が一気に増えました。こういう日は、運用している側も気持ちがざわつきます。ただ、私が大事にしているのは「下げた幅の大きさ」ではなく、誰が、何を、どれくらいの勢いで売ったのかを確かめることです。同じ下落でも、中身によって意味がまったく変わるからです。まず、市場全体が崩れたわけではない下げた当日のことを少していねいに見ていきます。大きく下げた割に、市場全体の取引量（出来高）はそれほど増えていませんでした。これは、市場に参加している多くの人が一斉に投げ売りした、という状況ではないことを示します。本当に相場が壊れるときは、もっと広い範囲で、もっと大きな売りの勢いが出るものです。今回はそれが見当たりませんでした。売られたのは「一部のメモリー株」だったでは何が売られたのか。たどっていくと、半導体の中でも「メモリー」と呼ばれる分野の銘柄に、その日だけ強い売りが集中していたことが分かりました。ローソク足（値動きを表すグラフ）の形を見ると、いったん「安くなったなら買おう」という買い手も入ったのですが、その買いは売りに押し負けています。なので、もうしばらく売りが続く可能性は残っています。実際、翌日も反発して始まったものの、また押される展開でした。ここまでが、決算前の私の整理です。気がかりな点はあるけれど、それは相場全体の話ではなく、一部の分野に限られた動きである。だから「トレンドそのものが終わった」と判断するのは早い、というのが正直なところでした。そして迎えた、王者・マイクロンの決算その判断を確かめる材料が、今朝届きました。メモリー半導体の代表格、マイクロンテクノロジーの決算です。中身は、売上も利益も事前予想を大きく上回り、これから先の見通しまで強気に引き上げてきました。時間外取引では10％以上の上昇です。中でも私が目を留めたのは、利益率の高さでした。商品を売って8割が利益として残る、という水準です。これは、買い手が「値段がいくらでも欲しい」という状態、つまり作る側が強い立場で売れていることを意味します。しかもその好調が一時的ではなく、まだ続きそうだと会社自身が見ている。需要の強さが数字にはっきり出ていました。今の私の見立て火曜日の売りは、たしかに無視はできません。けれど、それは一部の分野に限った動きであり、相場全体に崩れの兆しは出ていない。そこへ、メモリーの王者が「需要はまだ強い」と数字で示してきた。この二つを合わせて考えると、「今の流れがここで終わる」と判断するのは、まだ早い。これが、今日時点での私の見立てです。もちろん相場に絶対はありません。これから景色が変われば、私はためらわず構えを変えます。ただ、騒がしいニュースの一語で動くのではなく、中身を確かめてから判断する——その積み重ねを、こうして毎週お伝えしていきます。</p></div>
       <div class="pi"><div class="d">2026.06.18</div><p>FOMCの結果（タカ派寄り）により、株価が下落。 ただし、これら目の前のニュースに振り回される必要は一切、ございません。</p></div>
       <div class="pi"><div class="d">2026.06.17</div><p>高値圏での大きな上下の動きは、警戒レベルをひとつ上げるサインとなります。 ただ、だからと言って焦って対応する必要はありません。引き続き、規律に従い、動きます。</p></div>
     </details>
@@ -146,21 +187,21 @@
     <p class="disc" style="margin-bottom:16px;">下記の損益は当社モデル（想定運用）における想定上の数値であり、実際のお客様口座の運用成績ではありません。過去の結果であり、将来の成果を約束するものではありません。</p>
     <div class="gblock">
       <div class="ghd">保有中<span class="c">6</span></div><div class="gnote">判定前。ルールの範囲内で持っている</div>
-      <div class="row"><span class="tk">銘柄C</span><span class="mv dn">-2.5%</span><span class="stt">判定日まで 保有</span></div>
-      <div class="row"><span class="tk">銘柄L</span><span class="mv">+6.2%</span><span class="stt">ルール内 保有</span></div>
-      <div class="row"><span class="tk">銘柄N</span><span class="mv">+8.9%</span><span class="stt">ルール内 保有</span></div>
-      <div class="row"><span class="tk">銘柄R</span><span class="mv dn">-0.7%</span><span class="stt">判定日まで 保有</span></div>
-      <div class="row"><span class="tk">銘柄T</span><span class="mv dn">-0.7%</span><span class="stt">判定日まで 保有</span></div>
-      <div class="row"><span class="tk">銘柄Y</span><span class="mv">+7.1%</span><span class="stt">ルール内 保有</span></div>
+      <div class="row"><span class="tk">銘柄C</span><span class="mv dn">-16.3%</span><span class="stt">判定日まで 保有</span></div>
+      <div class="row"><span class="tk">銘柄L</span><span class="mv">+0.4%</span><span class="stt">ルール内 保有</span></div>
+      <div class="row"><span class="tk">銘柄N</span><span class="mv dn">-2.1%</span><span class="stt">判定日まで 保有</span></div>
+      <div class="row"><span class="tk">銘柄R</span><span class="mv dn">-4.2%</span><span class="stt">判定日まで 保有</span></div>
+      <div class="row"><span class="tk">銘柄T</span><span class="mv dn">-3.1%</span><span class="stt">判定日まで 保有</span></div>
+      <div class="row"><span class="tk">銘柄Y</span><span class="mv">+1.8%</span><span class="stt">ルール内 保有</span></div>
     </div>
     <div class="gblock">
       <div class="ghd">利を伸ばし中<span class="c">6</span></div><div class="gnote">半分利確し、残りを伸ばしにいっている</div>
-      <div class="row"><span class="tk">銘柄D</span><span class="mv">+19.1%</span><span class="stt">半分利確 → 保有</span></div>
-      <div class="row"><span class="tk">銘柄F</span><span class="mv">+51.4%</span><span class="stt">半分利確 → 保有</span></div>
-      <div class="row"><span class="tk">銘柄G</span><span class="mv">+26.9%</span><span class="stt">半分利確 → 保有</span></div>
-      <div class="row"><span class="tk">銘柄H</span><span class="mv">+47.3%</span><span class="stt">半分利確 → 保有</span></div>
-      <div class="row"><span class="tk">銘柄K</span><span class="mv">+19.9%</span><span class="stt">半分利確 → 保有</span></div>
-      <div class="row"><span class="tk">銘柄M</span><span class="mv">+16.3%</span><span class="stt">半分利確 → 保有</span></div>
+      <div class="row"><span class="tk">銘柄D</span><span class="mv">+6.8%</span><span class="stt">半分利確 → 保有</span></div>
+      <div class="row"><span class="tk">銘柄F</span><span class="mv">+36.5%</span><span class="stt">半分利確 → 保有</span></div>
+      <div class="row"><span class="tk">銘柄G</span><span class="mv">+18.8%</span><span class="stt">半分利確 → 保有</span></div>
+      <div class="row"><span class="tk">銘柄H</span><span class="mv">+32.7%</span><span class="stt">半分利確 → 保有</span></div>
+      <div class="row"><span class="tk">銘柄K</span><span class="mv">+3.5%</span><span class="stt">半分利確 → 保有</span></div>
+      <div class="row"><span class="tk">銘柄M</span><span class="mv">+5.2%</span><span class="stt">半分利確 → 保有</span></div>
     </div>
     <div class="gblock done">
       <div class="ghd">決済済<span class="c">6</span></div><div class="gnote">伸びなかった銘柄は、ルールで淡々と手放す</div>
@@ -181,8 +222,12 @@
     <p class="who"><b>下田 祐樹</b>　野村證券17年を経て独立。月次面談・週2回の相場レポートで、運用の中身を隠さず共有します。</p>
     <p class="sidedoor">ご縁のない方も、運用でお困りのことがあれば、一度お聞かせください。お力になれそうであれば、そこからお話を続けられればと思います。</p>
     <p class="legal">当社の投資助言に係る報酬は、助言対象資産に対し年率3.3%（税込）で、成功報酬はありません。当社の助言に基づく金融商品取引は、株式相場・金利・為替等の変動により損失が生じるおそれがあり、投資元本を割り込むおそれ（元本欠損リスク）があります。最終的な投資判断は、お客様ご自身の責任において行ってください。</p>
+    <p class="sitelink"><a href="https://www.ia-todokeru.com/">会社案内・サービスの詳細はこちら →</a></p>
     <p class="reg">関東財務局長（金商）第3348号 ／ 投資助言・代理業　株式会社TODOKERU<br>掲載の銘柄名は伏せて表示しています。特定の売買を推奨するものではありません。</p>
   </footer>
 </div>
-<script>function lv(){const d=new Date(),p=n=>String(n).padStart(2,'0');document.getElementById('lv').textContent=`${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;}lv();setInterval(lv,1000);</script>
+<script>function lv(){const d=new Date(),p=n=>String(n).padStart(2,'0');document.getElementById('lv').textContent=`${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;}lv();setInterval(lv,1000);
+document.querySelectorAll('.col,.stance,.invite,footer,details.letter').forEach(e=>e.classList.add('rv'));
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));</script>
 </body></html>
