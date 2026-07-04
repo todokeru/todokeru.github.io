@@ -76,6 +76,7 @@
   .gblock{margin-bottom:18px;} .gblock:last-child{margin-bottom:0;}
   .done .row{opacity:.5;}
   .ripple-stage{position:absolute;right:26px;top:32px;width:135px;height:108px;pointer-events:none;}
+  @media(max-width:430px){.ripple-stage{right:4px;top:38px;transform:scale(.85);transform-origin:top right;}}
   .drop{position:absolute;left:50%;top:0;width:4px;height:12px;margin-left:-2px;border-radius:50% 50% 60% 60%;background:linear-gradient(180deg,rgba(31,78,140,0),rgba(31,78,140,.9));animation:dropfall 4.2s cubic-bezier(.55,0,.85,.4) infinite;}
   @keyframes dropfall{0%{transform:translateY(-8px) scaleY(.6);opacity:0;}3%{opacity:1;}22%{transform:translateY(66px) scaleY(1.15);opacity:1;}23%{transform:translateY(70px);opacity:0;}100%{transform:translateY(70px);opacity:0;}}
   .wave{position:absolute;left:50%;top:76px;width:40px;height:14px;margin:-7px 0 0 -20px;border:1.5px solid rgba(31,78,140,.75);border-radius:50%;opacity:0;transform:scale(0);animation:spread 4.2s cubic-bezier(.17,.6,.35,1) infinite;}
